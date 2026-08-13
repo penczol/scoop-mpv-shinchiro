@@ -19,7 +19,7 @@
     "persist": "portable_config",
     "checkver": {
         "url": "https://api.github.com/repos/shinchiro/mpv-winbuild-cmake/releases/latest",
-        "jsonpath": "$.assets[*].name",
+        "jsonpath": "$.assets[?(@.name =~ /^mpv-x86_64-v3-\\d{8}-git-[0-9a-f]+\\.7z$/)].name",
         "regex": "^mpv-x86_64-v3-(?<date>\\d{8})-git-(?<commit>[0-9a-f]+)\\.7z$",
         "replace": "${date}-${commit}"
     },
