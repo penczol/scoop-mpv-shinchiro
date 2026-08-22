@@ -24,6 +24,8 @@ jobs:
           THROW_ERROR: 1
       - name: Verify Scoop checkver
         shell: pwsh
+        env:
+          SCOOP_GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           $ErrorActionPreference = 'Stop'
           $scoopHome = [Environment]::GetEnvironmentVariable('SCOOP_HOME', 'User')
